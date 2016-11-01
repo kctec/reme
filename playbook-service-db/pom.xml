@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ese-business-apps</groupId>
+    <artifactId>playbook-service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>playbook-service-db</artifactId>
+  <packaging>pom</packaging>
+  <name>Playbook Service - Liquibase Project</name>
+  <description>Liquibase project for updating Playbook DB tables</description>
+  <dependencies>
+		<dependency>
+			<groupId>oracle.jdbc</groupId>
+			<artifactId>orai18n</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>oracle.jdbc</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	
+	<properties>
+		<scm.rungoal>update</scm.rungoal>
+		<scm.skipdb>true</scm.skipdb>
+		<env>dev</env>
+		<!-- PLNDEV DB / JBOSS=Local -->
+ 		
+ 		<!--  dev --> 
+ 		
+			<espn.jdbc.url>jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = brsoda6-scan.corp.espn.pvt)(PORT = 8685)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = PLBDEV)))</espn.jdbc.url>
+		<database.username.prodops>prodops</database.username.prodops>
+        <database.password.prodops>plbdev</database.password.prodops>
+ 
+	</properties>	
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+	<plugins>
+		<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<executions>
+				    <execution>
+					    <id>prodops</id>
+						<phase>install</phase>
+						<configuration>
+						    <skip>${maven.jenkins.deploy}</skip>
+							<driver>oracle.jdbc.driver.OracleDriver</driver>
+							<url>${espn.jdbc.url}</url>
+							<username>${database.username.prodops}</username>
+							<password>${database.password.prodops}</password> 
+							<changeLogFile>src/main/resources/db.changelog.xml</changeLogFile>
+							<verbose>true</verbose>
+							<dropFirst>false</dropFirst>
+							<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+							<migrationSqlOutputFile>target/liquibase/PRODOPS^1^PLB.sql</migrationSqlOutputFile>
+							<defaultSchemaName>PRODOPS</defaultSchemaName>
+						</configuration>
+						<goals>
+							<goal>${scm.rungoal}</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
