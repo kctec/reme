@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>Playbook Service Web Application</display-name>
+  
+  <!--   <context-param>
+      <param-name>oauthAppId</param-name>
+      <param-value>directoryservice</param-value>
+   </context-param>
+   <context-param>
+      <param-name>oauthAppKey</param-name>
+      <param-value>${espn.web.directoryservice.api.key}</param-value>
+   </context-param>-->
+  
+  <servlet-mapping>
+    <servlet-name>javax.ws.rs.core.Application</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+
+  <filter>
+    <filter-name>wadl-filter</filter-name>
+    <filter-class>org.codehaus.enunciate.webapp.WADLFilter</filter-class>
+    <init-param>
+      <param-name>assumed-base-address</param-name>
+      <param-value>http://localhost:8080/playbook-service</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>wadl-filter</filter-name>
+    <url-pattern>/api/docs/application.wadl</url-pattern>
+  </filter-mapping>  
+
+</web-app>

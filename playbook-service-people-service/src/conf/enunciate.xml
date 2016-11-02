@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="http://enunciate.codehaus.org/schemas/enunciate-1.26.xsd">    
+    
+    <api-import pattern="com.espn.playbook-service.pojo.**"/> 
+    <api-import pattern="com.espn.playbook-service.service.**"/>
+    
+    <services>
+        <rest defaultRestSubcontext="/rest"/>
+    </services>
+    <modules>
+    	<spring-app disabled="true" />
+		<jersey disabled="true" />
+    	<csharp disabled="true"/>
+    	<c disabled="true" />
+    	<obj-c disabled="true" />
+    	<java-client />
+		<docs docsDir="/api/docs"  title="_Playbook Service API" copyright="ESPN" forceExampleJson="true"/>
+	    <xml>
+	      <schema namespace="http://espnapps.corp.espn.com/playbook-service/rest/v1"/>
+	    </xml>
+    </modules>
+</enunciate>
