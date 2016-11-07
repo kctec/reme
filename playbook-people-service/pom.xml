@@ -7,10 +7,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
  
-	<artifactId>playbook-service-people-service</artifactId>
+	<artifactId>playbook-people-service</artifactId>
  
 	<packaging>war</packaging>
-	<name>playbook-service-people-service</name>
+	<name>playbook-people-service</name>
 	<description>Services used for reading playbook data.  Currently RESTful services</description>
 
 	<properties>
@@ -185,12 +185,12 @@
 					<configFile>src/conf/enunciate.xml</configFile>
 				</configuration>
 				<executions>
-					<execution>
+					<!--  <execution>
 						<id>docs</id>
 						<goals>
 							<goal>assemble</goal>
 						</goals>
-					</execution>
+					</execution>-->
 
 				</executions>
 				<dependencies>

@@ -17,8 +17,8 @@
 		<module>playbook-service-db</module>
 		<module>playbook-service-common</module>
 		<module>playbook-service-entities</module>
-		<module>playbook-service-people-api</module>
-    	<module>playbook-service-people-service</module>
+		<module>playbook-people-api</module>
+    	<module>playbook-people-service</module>
   	</modules>
   	
 	<properties>

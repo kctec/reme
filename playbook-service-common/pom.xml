@@ -6,7 +6,9 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>playbook-service-common</artifactId>
-  <name>Playbook Service Common</name>
+ 
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Playbook Service Entities</name>
   <description>JPA shared amongst service projects, Message POJO's and DTO's that will be exposed via the REST services API</description>
   <dependencies>
 		<dependency>
@@ -46,7 +48,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
+		 <dependency>
 			<groupId>com.wordnik</groupId>
 			<artifactId>swagger-core</artifactId>
 			<scope>provided</scope>

@@ -29,3 +29,7 @@
 .classpath
 /target
 MANIFEST.MF
+/.idea
+/.idea/*
+*.DS_Store
+.DS_Store
