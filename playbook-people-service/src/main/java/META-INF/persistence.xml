@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="playbook-people-service">
+	<persistence-unit name="playbookPU">
+	 <jta-data-source>java:/jdbc/playbookDS</jta-data-source>  
+   <class>com.espn.playbook.entities.Role</class>  
+  <class>com.espn.playbook.entities.Department</class>  
+  <class>com.espn.playbook.entities.DepartmentRole</class>  
+      
+ <properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="hibernate.default_schema" value="PRODOPS" />
+			<property name="hibernate.default_batch_fetch_size" value="25" />
+			<property name="hibernate.cache.use_query_cache" value="false" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.use_sql_comments" value="true" />
+		</properties>
 	</persistence-unit>
 </persistence>

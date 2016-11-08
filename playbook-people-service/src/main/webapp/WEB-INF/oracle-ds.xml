@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+	<datasource jta="false" enabled="true" jndi-name="java:/jdbc/playbookDS"  pool-name="playbookPool">
+		<driver>oracle</driver>
+		<connection-url>jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = brsoda6-scan.corp.espn.pvt)(PORT = 8685))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME =PLBDEV)))</connection-url>
+        	 <!-- <connection-url>${datasource.iweb.url}</connection-url>  -->
+        <driver-class>oracle.jdbc.OracleDriver</driver-class>
+        <security>
+	        <password>PLBDEV</password>  
+	       <user-name>PRODOPS</user-name>
+        </security>
+        <pool>
+	        <min-pool-size>1</min-pool-size>
+	        <max-pool-size>100</max-pool-size>
+	    </pool>
+	     <validation>
+        	<check-valid-connection-sql>select null from dual</check-valid-connection-sql>
+        	 <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"/>
+            <validate-on-match>false</validate-on-match>
+            <background-validation>true</background-validation>
+            <background-validation-millis>180000</background-validation-millis>
+            <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"/>
+            <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
+        </validation>
+        <timeout>
+            <idle-timeout-minutes>15</idle-timeout-minutes>
+        </timeout>
+         <new-connection-sql>ALTER SESSION SET TIME_ZONE='UTC'</new-connection-sql>
+    </datasource>
+</datasources>
