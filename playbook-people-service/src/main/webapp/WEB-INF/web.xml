@@ -16,7 +16,7 @@
     <url-pattern>/rest/*</url-pattern>
   </servlet-mapping>
 
-  <filter>
+  <!-- <filter>
     <filter-name>wadl-filter</filter-name>
     <filter-class>org.codehaus.enunciate.webapp.WADLFilter</filter-class>
     <init-param>
@@ -27,6 +27,6 @@
   <filter-mapping>
     <filter-name>wadl-filter</filter-name>
     <url-pattern>/api/docs/application.wadl</url-pattern>
-  </filter-mapping>  
+  </filter-mapping>   -->
 
 </web-app>

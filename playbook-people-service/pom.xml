@@ -19,7 +19,7 @@
 			to the server. -->
 		<skipTests>true</skipTests>
 		<webappDirectory>src/main/webapp/</webappDirectory>
-		<final.name>playbook-service</final.name>
+		<final.name>playbook-people-service</final.name>
 		<wagon.fromFile>${project.groupId}/${project.artifactId}/${project.version}/${project.artifactId}-${project.version}.${project.packaging}</wagon.fromFile>
 		<wagon.url>dav:http://ivy.corp.espn.pvt:8090/archiva/repository/internal</wagon.url>
 		<wagon.toFile>${project.artifactId}.${project.packaging}</wagon.toFile>
@@ -155,10 +155,11 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-			</plugin>
+		 <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            
+        </plugin>
 			<!-- Jar up the source code -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
