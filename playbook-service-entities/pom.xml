@@ -6,17 +6,12 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>playbook-service-entities</artifactId>
- 
-  <name>Playbook Service Entities</name>
-  <description>JPA shared amongst service projects.  Will not be exposed via API</description>
-  
+  <name>ese-business-apps</name>
+<description>JPA shared amongst service projects.  Will not be exposed via API</description>
+
 	<dependencies>
 
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>playbook-service-common</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+		 
 		
 		<!-- Specs -->
 		<dependency>

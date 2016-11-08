@@ -41,9 +41,9 @@
 			<artifactId>restclientfactory</artifactId>
 		</dependency>
 		
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>ese-business-apps</groupId>
-			<artifactId>playbook-service-people-api</artifactId>
+			<artifactId>playbook-people-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
@@ -51,7 +51,7 @@
 			<groupId>ese-business-apps</groupId>
 			<artifactId>playbook-service-entities</artifactId>
 			<version>${project.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>espn-esd-web</groupId>

@@ -16,10 +16,12 @@
 	<modules>
 		<module>playbook-service-db</module>
 		<module>playbook-service-common</module>
-		<module>playbook-service-entities</module>
+		
 		<module>playbook-people-api</module>
     	<module>playbook-people-service</module>
-  	</modules>
+    	
+    	<module>playbook-service-entities</module>
+	</modules>
   	
 	<properties>
 		<maven-release-plugin.version>2.2.2</maven-release-plugin.version>

@@ -12,11 +12,11 @@
   </properties>
   <dependencies>
       
-    <dependency>
+   <!--  <dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>playbook-service-common</artifactId>
 			<version>${project.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>espn-esd-web</groupId>

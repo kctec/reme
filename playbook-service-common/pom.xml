@@ -8,7 +8,7 @@
   <artifactId>playbook-service-common</artifactId>
  
   <version>0.0.1-SNAPSHOT</version>
-  <name>Playbook Service Entities</name>
+  <name>Playbook Service Common</name>
   <description>JPA shared amongst service projects, Message POJO's and DTO's that will be exposed via the REST services API</description>
   <dependencies>
 		<dependency>
