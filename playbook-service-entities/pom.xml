@@ -33,5 +33,10 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>ese-business-apps</groupId>
+			<artifactId>playbook-service-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
