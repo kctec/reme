@@ -19,7 +19,7 @@
 			to the server. -->
 		<skipTests>true</skipTests>
 		<webappDirectory>src/main/webapp/</webappDirectory>
-		<final.name>directory-service</final.name>
+		<final.name>playbook-service</final.name>
 		<wagon.fromFile>${project.groupId}/${project.artifactId}/${project.version}/${project.artifactId}-${project.version}.${project.packaging}</wagon.fromFile>
 		<wagon.url>dav:http://ivy.corp.espn.pvt:8090/archiva/repository/internal</wagon.url>
 		<wagon.toFile>${project.artifactId}.${project.packaging}</wagon.toFile>
@@ -124,7 +124,17 @@
 			<artifactId>rest-common-util</artifactId>
 		</dependency>
 
-	</dependencies>
+		<dependency>
+			<groupId>ese-business-apps</groupId>
+			<artifactId>playbook-people-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>ese-business-apps</groupId>
+			<artifactId>playbook-service-entities</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		</dependencies>
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -165,30 +175,7 @@
 				<artifactId>maven-release-plugin</artifactId>
 			</plugin>
 
-			<plugin>
-				<groupId>org.codehaus.enunciate</groupId>
-				<artifactId>maven-enunciate-plugin</artifactId>
-				<version>1.26.1</version>
-				<configuration>
-					<configFile>src/conf/enunciate.xml</configFile>
-				</configuration>
-				<executions>
-					<!--  <execution>
-						<id>docs</id>
-						<goals>
-							<goal>assemble</goal>
-						</goals>
-					</execution>-->
-
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>commons-beanutils</groupId>
-						<artifactId>commons-beanutils</artifactId>
-						<version>1.7.0</version>
-					</dependency>
-				</dependencies>
-			</plugin>
+		
 
 			<plugin>
 				<groupId>com.github.kongchen</groupId>
@@ -197,13 +184,12 @@
 					<apiSources>
 						<apiSource>
 							<springmvc>false</springmvc>
-							<locations>com.espn.directory.service;com.espn.rest.common.service</locations>
-							<basePath>/directory/v2/rest</basePath>
+							<locations>com.espn.playbook.people.service</locations>
+							<basePath>/playbook/people/v1</basePath>
 							<info>
-								<version>v2</version>
+								<version>v1</version>
 								<description>
-									REST Services for reading directory data (ex.
-									Persons)
+									REST Services for reading Playbook
 								</description>
 								<contact>
 									<email>ESDWebDevelopers@espn.com</email>
@@ -211,7 +197,7 @@
 									<url />
 								</contact>
 							</info>
-							<swaggerDirectory>${project.build.directory}/directory-service</swaggerDirectory>
+							<swaggerDirectory>${project.build.directory}/playbook-service</swaggerDirectory>
 						</apiSource>
 					</apiSources>
 				</configuration>
