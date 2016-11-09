@@ -1,4 +1,4 @@
-package com.espn.playbook.entities;
+package com.espn.playbook.jpa;
 
 
 
@@ -20,7 +20,7 @@ public class Role {
 	public Role(String id, String roleName) {
 		super();
 		this.id = id;
-		this.roleName = roleName;
+		this.roleNm = roleName;
 	}
 
 	@Id
@@ -30,7 +30,7 @@ public class Role {
 	private String id;
 	
 	@Column(name = "ROLE_NM" )
-	private String roleName;
+	private String roleNm;
 
 	public String getId() {
 		return id;
@@ -40,12 +40,12 @@ public class Role {
 		this.id = id;
 	}
 
-	public String getRoleName() {
-		return roleName;
+	public String getRoleNm() {
+		return roleNm;
 	}
 
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
+	public void setRoleNm(String roleNm) {
+		this.roleNm = roleNm;
 	}
 	
 	

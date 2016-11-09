@@ -8,7 +8,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import com.espn.playbook.entities.Department;
+import com.espn.playbook.jpa.Dept;
 import com.espn.playbook.resource.rest.resource.DepartmentService;
 
 public class DepartmentServiceImpl implements DepartmentService {
@@ -19,8 +19,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Override
 	public Response getDepartments(@Context UriInfo ui) {
 		 
-		String query = "FROM Department";
-		  List<Department> roles = (List<Department>) entityManager.createQuery(query).getResultList();
+		String query = "FROM Dept";
+		  List<Dept> roles = (List<Dept>) entityManager.createQuery(query).getResultList();
 		  Response.ResponseBuilder responseBuilder = Response.status(Response.Status.OK);
 		  responseBuilder.entity(roles);
 		  return responseBuilder.build();

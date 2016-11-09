@@ -1,4 +1,4 @@
-package com.espn.playbook.entities;
+package com.espn.playbook.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="RSRC_TYPE")
-public class ResourceType {
+public class RsrcType {
 
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -21,7 +21,7 @@ public class ResourceType {
 	private String id;
 
 	@Column(name = "RSRC_TYPE_NM")
-	private String typeName;
+	private String typeNm;
 
 	public String getId() {
 		return id;
@@ -31,15 +31,15 @@ public class ResourceType {
 		this.id = id;
 	}
 
-	public String getTypeName() {
-		return typeName;
+	public String getTypeNm() {
+		return typeNm;
 	}
 
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
+	public void setTypeNm(String typeNm) {
+		this.typeNm = typeNm;
 	}
 
-	public ResourceType() {
+	public RsrcType() {
 		super();
 	}
 

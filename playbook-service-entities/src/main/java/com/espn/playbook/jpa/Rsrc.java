@@ -1,4 +1,4 @@
-package com.espn.playbook.entities;
+package com.espn.playbook.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name="RSRC")
-public class Resource {
+public class Rsrc {
 
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -21,15 +21,22 @@ public class Resource {
 	private String id;
 
 	@Column(name = "DISPLAY_NM")
-	private String displayName;
+	private String displayNm;
 
 	@OneToOne
 	@JoinColumn(
 			name     = "RSRC_TYPE_ID",
 			nullable = false
 			)
-	private ResourceType     resourceType;
+	private RsrcType     rsrcType;
 
+	@OneToOne
+	@JoinColumn(
+			name     = "PRSN_ID",
+			nullable = false
+			)
+	private Prsn     prsn;
+	
 	public String getId() {
 		return id;
 	}
@@ -38,23 +45,23 @@ public class Resource {
 		this.id = id;
 	}
 
-	public String getDisplayName() {
-		return displayName;
+	public String getDisplayNm() {
+		return displayNm;
 	}
 
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
+	public void setDisplayNm(String displayName) {
+		this.displayNm = displayName;
 	}
 
-	public ResourceType getResourceType() {
-		return resourceType;
+	public RsrcType getRsrcType() {
+		return rsrcType;
 	}
 
-	public void setResourceType(ResourceType resourceType) {
-		this.resourceType = resourceType;
+	public void setRsrcType(RsrcType rsrcType) {
+		this.rsrcType = rsrcType;
 	}
 
-	public Resource() {
+	public Rsrc() {
 		super();
 	}
 }

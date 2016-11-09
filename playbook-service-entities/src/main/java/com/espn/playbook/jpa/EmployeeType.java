@@ -1,4 +1,4 @@
-package com.espn.playbook.entities;
+package com.espn.playbook.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,19 +11,14 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="PRSN_TYPE_XREF")
-public class PersonType {
-
+@Table(name="EMPLOYEE_TYPE")
+public class EmployeeType {
 	@Id
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@Column(name = "PRSN_TYPE_XREF_ID", unique = true, nullable = false)
+	@Column(name = "EMPLOYEE_TYPE_ID", unique = true, nullable = false)
 	private String id;
 	
-	@Column(name = "DISPLAY_NM")
-	private String personTypeName;
-	
-	@Column(name = "DISPLAY_NM")
-	private String displayName;
- 
+	@Column(name = "EMPLOYEE_TYPE_NM")
+	private String employeeTypeNm;
 }

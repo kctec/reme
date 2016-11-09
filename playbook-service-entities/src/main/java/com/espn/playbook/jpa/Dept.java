@@ -1,4 +1,4 @@
-package com.espn.playbook.entities;
+package com.espn.playbook.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "DEPT")
-public class Department {
+public class Dept {
 
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -18,14 +18,14 @@ public class Department {
 	@Column(name = "DEPT_ID", unique = true, nullable = false)
 	private String id;
 	
-	public Department() {
+	public Dept() {
 		super();
 	}
 
-	public Department(String id, String departmentName) {
+	public Dept(String id, String deptNm) {
 		super();
 		this.id = id;
-		this.departmentName = departmentName;
+		this.deptNm = deptNm;
 	}
 
 	public String getId() {
@@ -37,13 +37,13 @@ public class Department {
 	}
 
 	public String getDepartmentName() {
-		return departmentName;
+		return deptNm;
 	}
 
 	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
+		this.deptNm = departmentName;
 	}
 
 	@Column(name = "DEPT_NM" )
-	private String departmentName;
+	private String deptNm;
 }

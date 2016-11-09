@@ -9,7 +9,7 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import com.espn.playbook.entities.Role;
+import com.espn.playbook.jpa.Role;
 import com.espn.playbook.resource.rest.resource.RolesService;
 
 public class RolesServiceImpl implements RolesService {
@@ -22,7 +22,7 @@ public class RolesServiceImpl implements RolesService {
 		MultivaluedMap<String, String> params = ui.getQueryParameters();
 		String query ;
 		if (params.containsKey("deptId")) {
-			query= "SELECT d.role FROM DepartmentRole d WHERE d.department = HexToRaw('" + params.get("deptId").get(0) + "')";
+			query= "SELECT d.role FROM DeptRoleXref d WHERE d.department = HexToRaw('" + params.get("deptId").get(0) + "')";
 
 		}else{
 			query= "FROM Role";

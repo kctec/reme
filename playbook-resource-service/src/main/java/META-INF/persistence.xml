@@ -6,12 +6,15 @@
 	
 		<jta-data-source>java:/jdbc/playbookDS</jta-data-source>
 		
-		<class>com.espn.playbook.entities.Role</class>
-		<class>com.espn.playbook.entities.Department</class>
-		<class>com.espn.playbook.entities.DepartmentRole</class>
-		<class>com.espn.playbook.entities.Resource</class>
-		<class>com.espn.playbook.entities.ResourceType</class>
-		<class>com.espn.playbook.entities.ResourceRole</class>
+		<class>com.espn.playbook.jpa.Role</class>
+		<class>com.espn.playbook.jpa.Dept</class>
+		<class>com.espn.playbook.jpa.DeptRoleXref</class>
+		<class>com.espn.playbook.jpa.Rsrc</class>
+		<class>com.espn.playbook.jpa.Prsn</class>
+		<class>com.espn.playbook.jpa.RsrcType</class>
+		<class>com.espn.playbook.jpa.RsrcRoleXref</class>
+		<class>com.espn.playbook.jpa.PrsnType</class>
+	    <class>com.espn.playbook.jpa.EmployeeType</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />

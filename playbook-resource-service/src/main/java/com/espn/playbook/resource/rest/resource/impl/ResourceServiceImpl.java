@@ -9,8 +9,9 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import com.espn.playbook.entities.Resource;
-import com.espn.playbook.entities.ResourceType;
+import com.espn.playbook.jpa.Prsn;
+import com.espn.playbook.jpa.Rsrc;
+import com.espn.playbook.jpa.RsrcType;
 import com.espn.playbook.resource.rest.resource.ResourceService;
 
 
@@ -24,21 +25,27 @@ public class ResourceServiceImpl implements ResourceService{
 		MultivaluedMap<String, String> params = ui.getQueryParameters();
 		StringBuilder sb = new StringBuilder();
 
-		sb.append("FROM Resource r WHERE r.id IS NOT NULL");
+		sb.append(" SELECT r.prsn FROM Rsrc as r");
+		/*if (params.containsKey("roleId")) {
+			sb.append(" inner join ResourceRole rr");
+		}*/
+		sb.append(" WHERE r.id IS NOT NULL");
+		
 		if (params.containsKey("typeId")) {
-			sb.append(" AND r.resourceType = HEXTORAW('" + params.get("typeId").get(0) + "')");
+			sb.append(" AND r.rsrcType = HEXTORAW('" + params.get("typeId").get(0) + "')");
 		}
 		if (params.containsKey("displayName")) {
-			sb.append(" AND LOWER(r.displayName) LIKE LOWER('%" + params.get("displayName").get(0) + "%')");
+			sb.append(" AND LOWER(r.displayNm) LIKE LOWER('%" + params.get("displayName").get(0) + "%')");
 		}
-		if (params.containsKey("roleId")) {
-			sb.append(" AND r in (SELECT rr.resource FROM ResourceRole rr where rr.role = HEXTORAW('" +params.get("roleId").get(0) + "'))");
-		}
-		
+		/*if (params.containsKey("roleId")) {
+			sb.append(" AND rr = HEXTORAW('" +params.get("roleId").get(0) + "')");
+			sb.append(" AND rr.role = r");
+		}*/
+
 		@SuppressWarnings("unchecked")
-		List<Resource> roles = (List<Resource>) entityManager.createQuery(sb.toString()).getResultList();
+		List<Prsn> people = (List<Prsn>) entityManager.createQuery(sb.toString()).getResultList();
 		Response.ResponseBuilder responseBuilder = Response.status(Response.Status.OK);
-		responseBuilder.entity(roles);
+		responseBuilder.entity(people);
 		return responseBuilder.build();
 	}
 
@@ -46,7 +53,7 @@ public class ResourceServiceImpl implements ResourceService{
 	public Response getAllResourceTypes() {
 		String query = "FROM ResourceType";
 		@SuppressWarnings("unchecked")
-		List<ResourceType> roles = (List<ResourceType>) entityManager.createQuery(query).getResultList();
+		List<RsrcType> roles = (List<RsrcType>) entityManager.createQuery(query).getResultList();
 		Response.ResponseBuilder responseBuilder = Response.status(Response.Status.OK);
 		responseBuilder.entity(roles);
 		return responseBuilder.build();

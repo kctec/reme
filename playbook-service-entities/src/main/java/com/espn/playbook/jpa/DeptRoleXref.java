@@ -1,4 +1,4 @@
-package com.espn.playbook.entities;
+package com.espn.playbook.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,13 +12,13 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "DEPT_ROLE_XREF")
-public class DepartmentRole {
+public class DeptRoleXref {
 
 	public String getId() {
 		return id;
 	}
 
-	public DepartmentRole() {
+	public DeptRoleXref() {
 		super();
 	}
 
@@ -34,11 +34,11 @@ public class DepartmentRole {
 		this.role = role;
 	}
 
-	public Department getDepartment() {
+	public Dept getDept() {
 		return department;
 	}
 
-	public void setDepartment(Department department) {
+	public void setDept(Dept department) {
 		this.department = department;
 	}
 
@@ -54,7 +54,7 @@ public class DepartmentRole {
 	
 	@ManyToOne
 	@JoinColumn(name="DEPT_ID")
-	private Department department;
+	private Dept department;
 	
 	
 }
