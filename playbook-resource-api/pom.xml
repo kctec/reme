@@ -5,7 +5,7 @@
     <artifactId>playbook-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>playbook-people-api</artifactId>
+  <artifactId>playbook-resource-api</artifactId>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

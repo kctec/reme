@@ -1,4 +1,4 @@
-package com.espn.playbook.people.rest.resource;
+package com.espn.playbook.resource.rest.resource;
 
 
 import com.wordnik.swagger.annotations.*;

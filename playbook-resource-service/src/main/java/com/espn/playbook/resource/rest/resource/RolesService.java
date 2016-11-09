@@ -1,4 +1,4 @@
-package com.espn.playbook.people.rest.resource;
+package com.espn.playbook.resource.rest.resource;
 
 import javax.annotation.security.PermitAll;
 import javax.websocket.server.PathParam;
@@ -17,7 +17,7 @@ import com.wordnik.swagger.annotations.ApiResponses;
 @Path("/role")
 @PermitAll
 @ApiModel(value = "Playbook Role API")
-public interface RoleService {
+public interface RolesService {
 	    @GET
 	    @Path("/all")
 	    @Produces({ MediaType.APPLICATION_JSON })

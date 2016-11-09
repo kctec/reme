@@ -1,9 +1,9 @@
-package com.espn.playbook.people.rest.resource.impl;
+package com.espn.playbook.resource.rest.resource.impl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.espn.playbook.people.rest.resource.ApplicationStatusService;
+import com.espn.playbook.resource.rest.resource.ApplicationStatusService;
 
 import javax.persistence.EntityManager;
 import javax.ws.rs.core.MediaType;
