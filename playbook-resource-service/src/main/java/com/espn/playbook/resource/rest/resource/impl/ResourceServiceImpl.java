@@ -5,11 +5,11 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.core.Response;
-
-import com.espn.playbook.entities.Department;
+ 
 import com.espn.playbook.entities.Resource;
 import com.espn.playbook.entities.ResourceType;
 import com.espn.playbook.resource.rest.resource.ResourceService;
+
 
 public class ResourceServiceImpl implements ResourceService{
 
