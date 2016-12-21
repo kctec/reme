@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+	<datasource jta="false" enabled="true" jndi-name="java:/jdbc/remeDS"  pool-name="remePool">
+        <driver>mysql</driver>
+        <connection-url>jdbc:mysql://localhost:3306/reme</connection-url>
+        <!-- <connection-url>${datasource.iweb.url}</connection-url>  -->
+        <driver-class>com.mysql.jdbc.Driver</driver-class>
+        <security>
+            <password>root</password>
+            <user-name>password</user-name>
+        </security>
+        <pool>
+            <min-pool-size>1</min-pool-size>
+            <max-pool-size>100</max-pool-size>
+        </pool>
+        <validation>
+            <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"></valid-connection-checker>
+            <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"></exception-sorter>
+        </validation>
+        <timeout>
+            <idle-timeout-minutes>15</idle-timeout-minutes>
+        </timeout>
+    </datasource>
+</datasources>
